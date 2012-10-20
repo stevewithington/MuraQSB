@@ -1,0 +1,31 @@
+Mura Quick Site Builder
+------------------------------------------------------------------------------------------
+
+INTRODUCTION
+Quick Site Builder is a simple Mura CMS Utility plugin that allows you to quickly create 
+Categories and Pages. Select the top-level category you want to populate and place each 
+item on its own line in the provided textarea. 
+Sub-pages and sub-categories are denoted by a hyphen in front.  
+
+
+Sample Category Structure:
+
+Category
+-Sub Cat 1
+-Sub Cat 2
+Category 2
+-Sub Cat 3
+-Sub Cat 4
+--Sub Sub Cat 1
+Category 3
+
+Sample Page Structure:
+
+Products
+-Product 1
+Services
+Support
+About
+-Jobs
+Contact
+

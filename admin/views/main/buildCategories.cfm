@@ -2,13 +2,12 @@
 
 <cfoutput>
 
-	<h3>Quick Site Builder</h3>
-	<hr/>
-
-	<p>The following categories have been added:</p>
-
+	<h2>The following categories have been added:</h2>
+	<div class="alert alert-info">
+	<ul>
 	<cfloop array="#rc.result#" index="thisItem">
 		<li>#thisItem.getName()#</li>
 	</cfloop>
-
+	</ul>
+	</div>
 </cfoutput>

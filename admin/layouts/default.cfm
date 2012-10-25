@@ -28,19 +28,17 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 <cfsavecontent variable="local.newBody">
 	<cfoutput>
 		<div class="mfw1adminblock">
-			<h1>#rc.pc.getPackage()#</h1>
+			<div id="pageTitle"><h2>#rc.pc.getPackage()#</h2></div>
 		</div>
 
 		<cfif StructKeyExists(rc, 'errors') and IsArray(rc.errors) and ArrayLen(rc.errors)>
 			<div class="mfw1adminblock">
-				<div class="alert alert-error">
-				<p>Please note the following message<cfif ArrayLen(rc.errors) gt 1>s</cfif>:</p>
+				<h4 class="red">Please note the following message<cfif ArrayLen(rc.errors) gt 1>s</cfif>:</h4>
 				<ul>
 					<cfloop from="1" to="#ArrayLen(rc.errors)#" index="local.e">
 						<li>#rc.errors[local.e]#</li>
 					</cfloop>
 				</ul>
-				</div>
 			</div>
 		</cfif>
 

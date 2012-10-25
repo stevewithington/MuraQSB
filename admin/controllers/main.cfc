@@ -39,27 +39,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	</cffunction>
 
 
-	<cffunction name="buildCategories" output="false" returntype="any">
+	<cffunction name="buildStructure" output="false" returntype="any">
 		<cfargument name="rc" />
 
 		<cfparam name="rc.categories">
 		<cfparam name="rc.parentCategory">
 
+		<cfset var args.type = rc.type />
 		<cfset var args.list = rc.categories />
 		<cfset var args.parentId = rc.parentCategory />
-		<cfset variables.fw.service( "import.parseCategories_list", "result", args ) />
-
-	</cffunction>
-
-
-	<cffunction name="buildPages" output="false" returntype="any">
-		<cfargument name="rc" />
-
-		<cfset var args.list = rc.pages />
-		<cfset var args.parentId = rc.parentPage />
-		<cfset var args.active = rc.active />
-		<cfset variables.fw.service( "import.parsePages_list", "result", args ) />
-
+		<cfset variables.fw.service( "import.parseStructure_list", "result", args ) />
 	</cffunction>
 
 </cfcomponent>

@@ -1,11 +1,11 @@
 <cfoutput><plugin>
-	<name>Quick Site Builder</name>
-	<package>QSB</package>
+	<name>Mura Quick Site Builder</name>
+	<package>MuraQSB</package>
 	<directoryFormat>packageOnly</directoryFormat>
 	<loadPriority>5</loadPriority>
 	<version>.1</version>
 	<provider>Nick Sollecito</provider>
-	<providerURL>http://nicksollecito.com</providerURL>
+	<providerURL>http://www.nicksollecito.com</providerURL>
 	<category>Utility</category>
 	<settings>
 		<!---<setting>

@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	framework = StructNew();
 
 	// !important: enter the plugin packageName here. must be the same as found in '{context}/plugin/config.xml.cfm'
-	framework.package = 'QSB';
+	framework.package = 'MuraQSB';
 
 	// change to TRUE if you're developing the plugin so you can see changes in your controllers, etc.
 	framework.reloadApplicationOnEveryRequest = false;

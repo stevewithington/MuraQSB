@@ -5,7 +5,7 @@
 
 	<!--- parse category and page list --->
 	<cffunction name="parseStructure_list" returntype="array">
-		<cfargument name="type" required="true" type="string" hint="Either 'page' or 'category'" />
+		<cfargument name="type" required="true" type="string" hint="Either 'content' or 'category'" />
 		<cfargument name="list" required="true" type="string" />
 		<cfargument name="parentId" required="false" type="string" default="" />
 		<cfargument name="key" required="false" type="string" default="-" />
@@ -41,7 +41,7 @@
 
 			<!--- if more levels than ancestors, we need to add to it --->
 			<cfif arrayLen(aAncestors) lt nLevels and i gt 1>
-				<cfset thisParentId = aResult[i-1].getValue("CategoryId") />
+				<cfset thisParentId = aResult[i-1].getValue(pkField) />
 				<cfset arrayAppend(aAncestors, thisParentId)>
 			</cfif>
 
@@ -61,15 +61,16 @@
 
 			<!--- populate category bean and persist --->
 			<cfset aResult[i] = $.getBean( arguments.type ) />
-			<cfset aResult[i].setParentId( thisParentId ) />
+			<cfset aResult[i].setParentId("#thisParentId#") />
 			<cfset aResult[i].setValue(pkField, createUUID()) />
 
 			<!--- set fields based on content type --->
-			<cfif arguments.type eq "Category">
+			<cfif arguments.type eq "category">
 
 				<cfset aResult[i].setName( replace(thisCat,"-","","all") ) />
+				<cfset aResult[i].setIsActive(arguments.active) />
 
-			<cfelseif arguments.type eq "Page">
+			<cfelseif arguments.type eq "content">
 
 				<cfset aResult[i].setTitle( replace(thisCat,"-","","all") ) />
 				<cfset aResult[i].setActive(arguments.active) />

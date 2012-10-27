@@ -24,6 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 <cfcomponent extends="controller" output="false">
 
 	<!--- load mura scope --->
+	<cfparam name="session.siteID" default="default">
 	<cfset variables.$=application.serviceFactory.getBean("MuraScope").init(session.siteID) />
 
 	<!--- ********************************* PAGES ******************************************* --->
@@ -31,23 +32,26 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	<cffunction name="default" output="false" returntype="any">
 		<cfargument name="rc" />
 
-		<!--- get categories --->
-		<cfset rc.qCats = $.getBean( "category" ).getKidsQuery() />
-
-		<!--- get pages --->
-		<cfset rc.qPages = $.getBean('content').loadBy(filename='').getKidsQuery() />
+		<cfif isDefined('session.mura')>
+			<!--- get categories --->
+			<cfset rc.qCats = $.getBean( "category" ).getKidsQuery() />
+			<!--- get pages --->
+			<cfset rc.qPages = $.getBean('content').loadBy(filename='').getKidsQuery() />
+		<cfelse>
+			<cfset variables.fw.redirect(action="main.error") />
+		</cfif>
 	</cffunction>
 
 
 	<cffunction name="buildStructure" output="false" returntype="any">
 		<cfargument name="rc" />
 
-		<cfparam name="rc.categories">
-		<cfparam name="rc.parentCategory">
+		<cfparam name="rc.type">
+		<cfparam name="rc.parentId">
 
 		<cfset var args.type = rc.type />
-		<cfset var args.list = rc.categories />
-		<cfset var args.parentId = rc.parentCategory />
+		<cfset var args.list = rc.list />
+		<cfset var args.parentId = rc.parentId />
 		<cfset variables.fw.service( "import.parseStructure_list", "result", args ) />
 	</cffunction>
 

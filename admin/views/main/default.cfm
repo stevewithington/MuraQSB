@@ -77,7 +77,7 @@
 			parent.append($("<option />").val("00000000000000000000000000000000001").text("Home"));
 
 			pages.DATA.each(function(i){
-				parent.append($("<option />").val(i[0]).text(i[1]))
+				parent.append($("<option />").val(i[10]).text(i[0]))
 			});
 		} else {
 			parent.append($("<option />").val("").text("Primary"));

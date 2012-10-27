@@ -3,7 +3,7 @@
 	<package>MuraQSB</package>
 	<directoryFormat>packageOnly</directoryFormat>
 	<loadPriority>5</loadPriority>
-	<version>.1</version>
+	<version>0.2</version>
 	<provider>Nick Sollecito</provider>
 	<providerURL>http://www.nicksollecito.com</providerURL>
 	<category>Utility</category>
